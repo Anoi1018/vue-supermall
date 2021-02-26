@@ -49,14 +49,14 @@
     text-align: center;
     /*移动端tabbar高度一般是49px*/
     height: 49px;
-    margin-top: 8px;
   }
   .tab-bar-item img{
-    width:24px;
-    height: 24px;
+    width:20px;
+    height: 20px;
     /*解决img图片底部默认3px*/
     vertical-align: middle;
     margin-bottom: 3px;
+    margin-top: 8px;
   }
 
 

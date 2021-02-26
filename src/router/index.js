@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
-
 const Home = ()=> import('../views/home/Home')
 const Category = () => import('../views/category/Category')
 const Cart = ()=> import('../views/cart/Cart')
@@ -18,24 +17,29 @@ const routes = [
   },
   {
     path:'/home',
-    component:Home
+    component:Home,
+    meta:{showTabbar:true},
   },
   {
     path:'/category',
-    component:Category
+    component:Category,
+    meta:{showTabbar:true},
   },
   {
     path:'/cart',
-    component:Cart
+    component:Cart,
+    meta:{showTabbar:true},
   },
   {
     path:'/profile',
-    component:Profile
+    component:Profile,
+    meta:{showTabbar:true},
   },
   {
-    // path:'/detail/:iid',
-    path:'/detail',
-    component:Details
+    path:'/detail/:id',
+    // path:'/detail',
+    component:Details,
+    meta:{showTabbar:true},
   }
 
 ]

@@ -13,7 +13,7 @@
 <style scoped>
  .slide {
    width: 100%;
-   margin-top: 44px;
+   /*margin-top: 44px;*/
    flex-shrink: 0;
  }
   .slide img {

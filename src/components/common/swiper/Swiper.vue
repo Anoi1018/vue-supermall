@@ -1,6 +1,6 @@
 <template>
   <div id="hy-swiper">
-    <div class="swiper" @touchstart="touchStart" @touchmove="touchMove"
+    <div class="swiper" ref="swiper" @touchstart="touchStart" @touchmove="touchMove"
          @touched="touchEnd">
       <slot></slot>
     </div>
@@ -8,8 +8,7 @@
     </slot>
     <div class="indicator">
       <slot name="indicator" v-if="showIndicator && slideCount > 1" >
-        <div v-for="(item,index) in slideCount" class="indi-item" :class="{active:
-          index === currentIndex - 1}" :key='index'></div>
+        <div v-for="index in slideCount" class="indi-item" :class="{active:currentIndex-1 === index}" :key='index'></div>
       </slot>
     </div>
   </div>
@@ -120,7 +119,8 @@
        */
       handleDom:function () {
         //1.获取要操作的元素
-        let swiperEl = document.querySelector('.swiper');
+        let swiperEl = this.$refs.swiper;
+        // let swiperEl = document.querySelector('.swiper');
         let slideEls = swiperEl.getElementsByClassName('slide');
 
         //2.保存个数
@@ -234,7 +234,7 @@
     font-size: 12px;
     margin:0 5px;
   }
-  .index-item .active {
+  .indi-item .active {
     background-color: rgba(212,62,46,1.0);
   }
 </style>
