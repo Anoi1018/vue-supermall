@@ -41,7 +41,7 @@
   import BackTop from "../../components/content/backTop/BackTop";
 
   import { getHomeMultidata, getHomeGoods} from "../../network/home";
-  import {imageListenerMixin} from "../../common/mixin";
+  import {imageListenerMixin,backTopMix} from "../../common/mixin";
 
   export default {
         name: "Home",
@@ -53,9 +53,8 @@
       TabControl,
       GoodsList,
       Scroll,
-      BackTop
     },
-    mixins:[imageListenerMixin],
+    mixins:[imageListenerMixin,backTopMix],
     data(){
           return {
             // result:null
@@ -67,7 +66,6 @@
               'sell':{page:0,list:[]},
             },
             currentType:'pop',
-            isShowBackTop:false,
             tabOffsetTop:0,
             isTabFixed:false,
             saveY:0,
@@ -127,13 +125,16 @@
         this.$refs.tabControl1.currentIndex = index;
         this.$refs.tabControl2.currentIndex = index;
       },
-      backClick(){
-        this.$refs.scroll.scrollTo(0,0,500);
-      },
+      // backClick(){
+      //   this.$refs.scroll.scrollTo(0,0,500);
+      // },
       contentScroll(position){
-        this.isShowBackTop = (-position.y) > 1000;
+        this.showBacktop(position);
         this.isTabFixed = (-position.y)>this.tabOffsetTop;
       },
+      // showBacktop(position){
+      //   this.isShowBackTop = (-position.y) > 1000;
+      // },
       loadMore(){
         this.getHomeGoods(this.currentType);
         this.$refs.scroll.refresh();

@@ -2,15 +2,15 @@
   <div class="bottomBar">
     <div class="bar-item bar-left">
       <div>
-        <i class="icon service"></i>
+        <img class="icon service" src="@/assets/img/detail/detail_bottom1.jpg">
         <span class="text">客服</span>
       </div>
       <div>
-        <i class="icon shop"></i>
+        <img class="icon shop" src="@/assets/img/detail/detail_bottom2.jpg">
         <span class="text">店铺</span>
       </div>
       <div>
-        <i class="icon select"></i>
+        <img class="icon select" src="@/assets/img/detail/detail_bottom3.jpg">
         <span class="text">收藏</span>
       </div>
     </div>
@@ -23,7 +23,12 @@
 
 <script>
     export default {
-        name: "DetailBottomBar"
+        name: "DetailBottomBar",
+      methods:{
+        addToCart(){
+          this.$emit('addToCart');
+        }
+      }
     }
 </script>
 
@@ -52,18 +57,18 @@
 
 .bar-left .icon{
   display: block;
-  width: 20px;
-  height: 20px;
+  width: 18px;
+  height: 18px;
   margin: 5px auto 3px;
   /*background:url('~assets/img/detail/detail_bottom.png') 0 0/100%;*/
-  background:url('@/assets/img/detail/detail_bottom3.jpg') 0 0/100%;
+
 }
-.bar-left .service{
-  background-position: 0 -54px;
-}
-.bar-left .shop {
-  background-position: 0 -98px;
-}
+/*.bar-left .service{*/
+/*  background-position: 0 -54px;*/
+/*}*/
+/*.bar-left .shop {*/
+/*  background-position: 0 -98px;*/
+/*}*/
 .bar-right {
   font-size: 15px;
   color: #fff;

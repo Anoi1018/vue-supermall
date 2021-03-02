@@ -1,4 +1,5 @@
 import {debounce} from "./utils";
+import BackTop from "../components/content/backTop/BackTop";
 
 export const imageListenerMixin = {
   data(){
@@ -14,3 +15,23 @@ export const imageListenerMixin = {
     // console.log('我是混入中的监听');
   }
 }
+
+export const backTopMix ={
+  data(){
+    return {
+      isShowBackTop:false,
+    }
+  },
+  components: {
+    BackTop
+  },
+  methods: {
+    backClick(){
+      this.$refs.scroll.scrollTo(0,0,500);
+    },
+    showBacktop(position){
+      this.isShowBackTop = (-position.y) > 1000;
+    },
+  }
+}
+
